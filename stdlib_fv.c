@@ -23,16 +23,16 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------
 */
 
-#include "fv_stdlib.h"
+#include "stdlib_fv.h"
 
-size_t strlen(const char *s)
+size_t strlen_fv(const char *s)
 {
 	size_t w = 0;
 	for (; *s; s++, w++);
 	return w;
 }
 
-void *memset(void *dest, int c, size_t n)
+void *memset_fv(void *dest, int c, size_t n)
 {
 	unsigned char *s = dest;
 	for (; n > 0; s++, n--)
@@ -40,14 +40,14 @@ void *memset(void *dest, int c, size_t n)
 	return dest;
 }
 
-int memcmp(const void *vl, const void *vr, size_t n)
+int memcmp_fv(const void *vl, const void *vr, size_t n)
 {
 	const unsigned char *l=vl, *r=vr;
 	for (; n && *l == *r; n--, l++, r++);
 	return n ? *l-*r : 0;
 }
 
-char *strncpy (char *dest, const char *src, size_t n)
+char *strncpy_fv(char *dest, const char *src, size_t n)
 {
 	char *d;
 	const char *s;
@@ -58,7 +58,7 @@ char *strncpy (char *dest, const char *src, size_t n)
 	return dest;
 }
 
-void *memcpy(void *restrict dest, const void *restrict src, size_t n)
+void *memcpy_fv(void *restrict dest, const void *restrict src, size_t n)
 {
 	unsigned char *d = dest;
 	const unsigned char *s = src;
@@ -72,7 +72,7 @@ void *memcpy(void *restrict dest, const void *restrict src, size_t n)
 	return dest;
 }
 
-int strncmp(const char *s1, const char *s2, size_t n)
+int strncmp_fv(const char *s1, const char *s2, size_t n)
 {
 	const unsigned char *p1 = (void *) s1, *p2 = (void *) s2;
 	if (!n) return 0;
