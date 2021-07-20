@@ -45,9 +45,9 @@ typedef unsigned long int uintptr_t;
 #define Debug_LOG_ERROR(...)
 #define Debug_LOG_INFO(...)
 
-size_t strlen (const char *s);
-void *memset (void *dest, int c, size_t n);
-int memcmp (const void *vl, const void *vr, size_t n);
-char *strncpy (char *dest, const char *src, size_t n);
-void *memcpy (void *restrict dest, const void *restrict src, size_t n);
-int strncmp (const char *s1, const char *s2, size_t n);
+size_t strlen_fv (const char *s);
+void *memset_fv (void *dest, int c, size_t n);
+int memcmp_fv (const void *vl, const void *vr, size_t n);
+char *strncpy_fv (char *dest, const char *src, size_t n);
+void *memcpy_fv (void *restrict dest, const void *restrict src, size_t n);
+int strncmp_fv (const char *s1, const char *s2, size_t n);
