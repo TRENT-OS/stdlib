@@ -35,8 +35,28 @@ size_t strlen_fv(const char *s)
 void *memset_fv(void *dest, int c, size_t n)
 {
 	unsigned char *s = dest;
-	for (; n > 0; s++, n--)
-		*s = c;
+	size_t k;
+
+	if (!n) return dest;
+	s[0] = c;
+	s[n-1] = c;
+	if (n <= 2) return dest;
+	s[1] = c;
+	s[n-2] = c;
+	s[2] = c;
+	s[n-3] = c;
+	if (n <= 6) return dest;
+	s[3] = c;
+	s[n-4] = c;
+	if (n <= 8) return dest;
+
+	k = -(uintptr_t)s & 3;
+	s += k;
+	n -= k;
+	n &= -4;
+
+	for (; n; n--, s++) *s = c;
+
 	return dest;
 }
 
