@@ -33,17 +33,15 @@ typedef long unsigned int size_t;
 
 typedef unsigned long int uintptr_t;
 
+#ifndef NULL
 #define NULL 0
+#endif /* NULL */
 #define true 1
 #define false 0
 
 #define UCHAR_MAX	255
 
 #define Memory_Config_STATIC
-#define Debug_ASSERT(x)
-#define Debug_ASSERT_SELF(x)
-#define Debug_LOG_ERROR(...)
-#define Debug_LOG_INFO(...)
 
 size_t strlen_fv (const char *s);
 void *memset_fv (void *dest, int c, size_t n);
